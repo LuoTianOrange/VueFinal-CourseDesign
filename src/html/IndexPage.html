@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>橘橘画廊</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <!--<script src="K:\Project\Vue.js\finproject\src\html\vue.js"></script>-->
+    <style>
+        body,
+        head {
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            height: 55px;
+            width: 100%;
+        }
+
+        .main-header {
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .head-item {
+            margin: 0 10px;
+            overflow: hidden;
+        }
+
+        .head-search {
+            border: 2px solid #bdbdbd;
+            border-radius: 20px;
+            height: 35px;
+            min-width: 100px;
+            display: flex;
+        }
+
+        .head-search-input {
+            width: calc(100% - 20px);
+            height: 25px;
+            border: 0;
+            outline: none;
+            margin-top: 4px;
+        }
+
+        .logo-search {
+            margin-top: 8px;
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+        }
+
+        .user-head {
+            width: 40px;
+            border-radius: 50%;
+            border: 1px solid #777777;
+            position: relative;
+
+        }
+
+        .body {
+            width: 100%;
+            min-height: 1000px;
+            background-color: #e6ecf0;
+        }
+
+        .main-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .body-box1 {
+            width: 90%;
+            min-height: 150px;
+            background-color: white;
+            border-radius: 6px;
+            margin-top: 60px;
+        }
+
+        .body-box2 {
+            width: 90%;
+            min-height: 600px;
+            background-color: white;
+            border-radius: 6px;
+            margin-top: 60px;
+        }
+
+        .body-leftmargin {
+            margin: 0 10px;
+        }
+
+        .body-nav {
+            width: 100%;
+            height: 60px;
+            margin: 2px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .body-nav-item {
+            margin: 0 10px;
+            overflow: hidden;
+            /* border: 1px solid #000; */
+        }
+
+        .body-item {
+            flex-wrap: warp;
+        }
+
+        .body-img {
+            width: 200px;
+        }
+
+        .img-item {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid #eb972a;
+            box-shadow: 0 0 5px #eb972a;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        .text1 {
+            font-size: 20px;
+            font-weight: bolder;
+            color: #000;
+        }
+
+        .text2 {
+            font-size: 18px;
+            font-family: 微软雅黑;
+            color: #777777;
+        }
+
+        .text3 {
+            font-size: 22px;
+            font-family: 微软雅黑;
+            font-weight: bolder;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="head">
+            <div class="main-header">
+                <div class="head-item" style="margin-left: 60px;">
+                    <img src="../assets/logo.png" alt="logo" width="40px">
+                </div>
+                <div class="head-item">
+                    <div class="text1">橘橘画廊</div>
+                </div>
+                <div class="head-item" style="flex: 1;">
+                    <div class="head-search">
+                        <img src="../assets/serach-logo.png" alt="search" class="logo-search">
+                        <form style="flex: 1;">
+                            <input class="head-search-input" type="text" title="1">
+                        </form>
+                    </div>
+                </div>
+                <div class="head-item">
+                    <a href="">
+                        <!--头像-->
+                        <img src="../assets/3.png" alt=""
+                            style="width: 40px;border-radius: 50%;border: 1px solid #777777;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="main-body">
+                <div class="body-box1"></div>
+                <div class="body-box2">
+                    <div class="body-leftmargin">
+                        <div class="body-nav">
+                            <div class="body-nav-item text2">
+                                新到货的作品
+                            </div>
+                            <div class="body-nav-item text2">
+                                你所关注的作者的新作品
+                            </div>
+                            <div class="body-nav-item text2">
+                                最喜欢的作者
+                            </div>
+                            <div class="body-nav-item text2">
+                                受欢迎的作者
+                            </div>
+                        </div>
+                        <hr color="#e6ecf0">
+                        <div class="body-nav">
+                            <div style="font-size: 14px;margin-left: 10px;">▶</div>
+                            <div class="body-nav-item text3">动漫</div>
+                        </div>
+                        <hr color="#e6ecf0">
+                        <div class="body-leftmargin">
+                            <img-item class="body-item" v-for="photo in image" 
+                            :key="photo.no"
+                            :value="photo.url"></img-item>
+                            <div v-for="photo in image">
+                                <div>{{ photo.url }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div>Copyright 大橘猫</div>
+        </div>
+        <template id="img-tmp">
+            <div class="img-item">
+                <!--props 参数传到子组件的this上？
+                -->
+                <img :src="this.value" alt="" class="body-img">
+            </div>
+        </template>
+    </div>
+
+    <script>
+        Vue.component('img-item', {
+            props: ['value'],
+            template: '#img-tmp'
+        })
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                image: [
+                    {
+                        no: 1,
+                        name: "nacho1",
+                        author: "nacho",
+                        price: 1000,
+                        time: "2023-06-09",
+                        url: "../assets/1.png"
+                    },
+                    {
+                        no: 2,
+                        name: "nacho2",
+                        author: "nacho",
+                        price: 1000,
+                        time: "2023-06-09",
+                        url: "../assets/2.png"
+                    },
+
+                ],
+                // author:[],
+                // price:[],
+
+            },
+            methods: {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

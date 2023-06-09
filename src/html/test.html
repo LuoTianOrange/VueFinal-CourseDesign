@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>橘橘画廊</title>
+    <script src="K:\Project\Vue.js\finproject\src\html\vue.js"></script>
+    <script>
+
+
+        window.onload = () => {
+            Vue.component('img-item', {
+                props: ['value'],
+                template: '#img-tmp',
+            })
+            let vm = new Vue({
+                el: '#app',
+                data: {
+                    'image': [{'url': 'a'}, {'url': 'b'}],
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <template id="img-tmp">
+        <div>value: {{ value }}</div>
+    </template>
+    <div v-for="a in image">
+        <img-item :value="a.url"></img-item>
+    </div>
+</div>
+</body>
+</html>
