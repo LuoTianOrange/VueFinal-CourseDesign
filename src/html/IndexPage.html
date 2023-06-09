@@ -20,6 +20,7 @@
             width: 100%;
         }
 
+        /*导航栏样式*/
         .main-header {
             height: 100%;
             width: 100%;
@@ -32,11 +33,13 @@
             z-index: 10;
         }
 
+        /*导航栏盒子样式*/
         .head-item {
             margin: 0 10px;
             overflow: hidden;
         }
 
+        /*导航栏搜索框样式*/
         .head-search {
             border: 2px solid #bdbdbd;
             border-radius: 20px;
@@ -44,7 +47,7 @@
             min-width: 100px;
             display: flex;
         }
-
+        /*导航栏输入框样式*/
         .head-search-input {
             width: calc(100% - 20px);
             height: 25px;
@@ -52,14 +55,14 @@
             outline: none;
             margin-top: 4px;
         }
-
+        /*导航栏logo样式*/
         .logo-search {
             margin-top: 8px;
             width: 20px;
             height: 20px;
             margin-left: 8px;
         }
-
+        /*导航栏用户头像样式*/
         .user-head {
             width: 40px;
             border-radius: 50%;
@@ -73,13 +76,13 @@
             min-height: 1000px;
             background-color: #e6ecf0;
         }
-
+        /*页面主体样式*/
         .main-body {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
+        /*页面主体公告栏样式*/
         .body-box1 {
             width: 90%;
             min-height: 150px;
@@ -87,7 +90,7 @@
             border-radius: 6px;
             margin-top: 60px;
         }
-
+        /*页面主体画作展示样式*/
         .body-box2 {
             width: 90%;
             min-height: 600px;
@@ -95,11 +98,11 @@
             border-radius: 6px;
             margin-top: 60px;
         }
-
+        /*页面主体两边间隔样式*/
         .body-leftmargin {
             margin: 0 10px;
         }
-
+        /*页面主体导航栏样式*/
         .body-nav {
             width: 100%;
             height: 60px;
@@ -108,21 +111,25 @@
             flex-direction: row;
             align-items: center;
         }
-
+        /*页面主体导航栏盒子样式*/
         .body-nav-item {
             margin: 0 10px;
             overflow: hidden;
             /* border: 1px solid #000; */
         }
-
+        /*页面主体内容样式*/
         .body-item {
+            display: flex;
             flex-wrap: warp;
         }
-
+        /*页面主体图片样式*/
         .body-img {
             width: 200px;
-        }
+            height: 200px;
+            object-fit: cover;
 
+        }
+        /*页面主体图片盒子样式*/
         .img-item {
             width: 200px;
             height: 200px;
@@ -133,13 +140,13 @@
             margin-left: 20px;
             margin-top: 20px;
         }
-
+        /*头部导航栏文字*/
         .text1 {
             font-size: 20px;
             font-weight: bolder;
             color: #000;
         }
-
+        /*主体导航栏文字*/
         .text2 {
             font-size: 18px;
             font-family: 微软雅黑;
@@ -152,12 +159,33 @@
             font-weight: bolder;
             color: #000;
         }
+
+        .foot-body {}
+
+        .hover-div {
+            background-color: #ccc;
+            padding: 10px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        /*页面主体悬浮菜单样式*/
+        .body-content {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            z-index: 2;
+            background-color: white;
+            opacity: 0.8;
+        }
     </style>
 </head>
 
 <body>
     <div id="app">
         <div class="head">
+            <!--头部导航栏-->
             <div class="main-header">
                 <div class="head-item" style="margin-left: 60px;">
                     <img src="../assets/logo.png" alt="logo" width="40px">
@@ -166,6 +194,7 @@
                     <div class="text1">橘橘画廊</div>
                 </div>
                 <div class="head-item" style="flex: 1;">
+                    <!--搜索框-->
                     <div class="head-search">
                         <img src="../assets/serach-logo.png" alt="search" class="logo-search">
                         <form style="flex: 1;">
@@ -184,7 +213,9 @@
         </div>
         <div class="body">
             <div class="main-body">
+                <!--公告栏-->
                 <div class="body-box1"></div>
+                <!--画作展示栏-->
                 <div class="body-box2">
                     <div class="body-leftmargin">
                         <div class="body-nav">
@@ -208,29 +239,35 @@
                         </div>
                         <hr color="#e6ecf0">
                         <div class="body-leftmargin">
-                            <img-item class="body-item" v-for="photo in image" 
-                            :key="photo.no"
-                            :value="photo.url"></img-item>
-                            <div v-for="photo in image">
-                                <div>{{ photo.url }}</div>
+                            <div style="display: flex;flex-wrap: wrap;">
+                                <img-item class="body-item" v-for="photo in image" :key="photo.no" :value="photo.url">
+                                </img-item>
+
+
                             </div>
                         </div>
+                        <div class="body-nav"></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="foot">
-            <div>Copyright 大橘猫</div>
+            <div class="foot-body">
+                <div class="foot-">
+                    Copyright 大橘猫
+                </div>
+            </div>
         </div>
-        <template id="img-tmp">
+    </div>
+    <template id="img-tmp">
+        <div>
             <div class="img-item">
-                <!--props 参数传到子组件的this上？
-                -->
+                <!--悬停窗口-->
+                <div class="body-content">{{name}}</div>
                 <img :src="this.value" alt="" class="body-img">
             </div>
-        </template>
-    </div>
-
+        </div>
+    </template>
     <script>
         Vue.component('img-item', {
             props: ['value'],
@@ -239,32 +276,99 @@
 
         let vm = new Vue({
             el: "#app",
-            data: {
-                image: [
-                    {
-                        no: 1,
-                        name: "nacho1",
-                        author: "nacho",
-                        price: 1000,
-                        time: "2023-06-09",
-                        url: "../assets/1.png"
-                    },
-                    {
-                        no: 2,
-                        name: "nacho2",
-                        author: "nacho",
-                        price: 1000,
-                        time: "2023-06-09",
-                        url: "../assets/2.png"
-                    },
+            data() {
+                return {
+                    isHovered: false,
+                    // animation 动漫
+                    // ChinesepPainting 国画
+                    // canvas 油画
+                    image: [
+                        {
+                            no: 1,
+                            name: "nacho1",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/1.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 2,
+                            name: "nacho2",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/2.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 3,
+                            name: "nacho3",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/3.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 4,
+                            name: "nacho4",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/4.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 5,
+                            name: "nacho5",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/5.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 6,
+                            name: "nacho6",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/6.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 7,
+                            name: "nacho7",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/7.png",
+                            type: "animation"
+                        },
+                        {
+                            no: 8,
+                            name: "nacho8",
+                            author: "nacho",
+                            price: 1000,
+                            time: "2023-06-09",
+                            url: "../assets/8.png",
+                            type: "animation"
+                        },
+                    ],
+                    // author:[],
+                    // price:[],
 
-                ],
-                // author:[],
-                // price:[],
+                };
 
             },
             methods: {
-
+                showDiv() {
+                    this.isHovered = true;
+                },
+                hideDiv() {
+                    this.isHovered = false;
+                }
             },
 
         })
