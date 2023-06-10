@@ -5,8 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图片展示</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="./http-vue-loader.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <myheader></myheader>
+    </div>
 </body>
+
+<script type="module">
+    Vue.use(httpVueLoader)
+    new Vue({
+        el: '#app',
+        components: {
+            'myheader': "url:../components/MainHeader.vue"
+        }
+    })
+</script>
 </html>

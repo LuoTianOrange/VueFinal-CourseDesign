@@ -17,7 +17,8 @@ const routes = [
     path: '/',
     name: 'index',
     component: IndexPage
-  }
+  },
+  
 ]
 
 const router = new VueRouter({
