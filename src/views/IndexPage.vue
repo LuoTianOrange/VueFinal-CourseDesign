@@ -47,6 +47,7 @@ export default {
         ImgItem
     },
     data() {
+        
         return {
                     isHovered: false,
                     activePhoto: "display: none",
@@ -140,16 +141,31 @@ export default {
                             url: require(`@/assets/12.png`),
                             type: "ChinesepPainting"
                         },
+                        {
+                            no: 10,
+                            name: "live-Grove-Orange-Sky_m",
+                            author: "fangao",
+                            price: 1000,
+                            time: "2023-06-11",
+                            url: require(`@/assets/13.jpg`),
+                            type: "canvas"
+                        },
                     ],
-                    // author:[],
-                    // price:[],
-
                 };
-    }
+                
+    },
+    //在创建实例前设置body样式
+    beforeCreate(){
+        document.querySelector('body').setAttribute('style', 'margin: 0;padding: 0')
+    },
 }
 </script>
 
 <style>
+.body head{
+  margin: 0;
+  padding: 0;
+}
 .body {
     width: 100%;
     min-height: 1000px;

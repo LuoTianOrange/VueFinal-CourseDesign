@@ -1,10 +1,14 @@
 <template>
     <!-- 图片展示框 -->
-    <div class="img-item">
-        <img :src="url" alt="" class="body-img">
-    </div>
+    <a :href="PhotoPage">
+        <div class="img-item">
+            <img :src="url" alt="" class="body-img">
+        </div>
+    </a>
 </template>
 <script>
+import PhotoPage from '@/views/PhotoPage.vue';
+
 export default {
     data: {
         image: [

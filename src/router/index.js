@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    name: 'index',
+    component: IndexPage
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -13,12 +18,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
-  {
-    path: '/',
-    name: 'index',
-    component: IndexPage
-  },
-  
+
+
 ]
 
 const router = new VueRouter({

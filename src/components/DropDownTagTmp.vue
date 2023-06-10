@@ -9,7 +9,7 @@
         </div>
         <slot v-if="isClicked">
         </slot>
-        <hr color="#e6ecf0">
+        <hr color="#e6ecf0" style="margin-top: 20px;">
     </div>
 </template>
 
@@ -24,4 +24,5 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+</style>

@@ -32,6 +32,7 @@
 .main-header {
     height: 100%;
     width: 100%;
+    margin: 3px 0;
     background-color: white;
     display: flex;
     flex-direction: row;
