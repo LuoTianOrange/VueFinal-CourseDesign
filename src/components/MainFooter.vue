@@ -16,6 +16,6 @@ export default {
 
 <style>
 .foot-body{
-    margin-top: 20px;
+    
 }
 </style>

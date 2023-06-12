@@ -8,10 +8,10 @@
                 <div class="body-leftmargin">
                     <div class="body-nav">
                         <div class="body-nav-item text2">
-                            新到货的作品
+                            作品
                         </div>
                         <div class="body-nav-item text2">
-                            你所关注的作者的新作品
+                            作者
                         </div>
                         <div class="body-nav-item text2">
                             最喜欢的作者
@@ -34,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <div style="width: 100%;height: 40px;"></div>
     </div>
 </template>
 
