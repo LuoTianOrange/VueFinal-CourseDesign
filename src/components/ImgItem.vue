@@ -1,16 +1,17 @@
 <template>
     <!-- 图片展示框 -->
-    <a :href="PhotoPage">
+    <router-link to="/PhotoPage">
         <div class="img-item">
             <img :src="url" alt="" class="body-img">
         </div>
-    </a>
+    </router-link>
 </template>
 <script>
 import PhotoPage from '@/views/PhotoPage.vue';
 
 export default {
-    data: {
+    data: function() {
+return {
         image: [
             {
                 no: 1,
@@ -30,7 +31,8 @@ export default {
             },
 
         ]
-    }
+    };
+}
 }
 </script>
 <style>
