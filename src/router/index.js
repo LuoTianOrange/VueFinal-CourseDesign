@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import IndexPage from '../views/IndexPage.vue'
-// import PhotoPage from '../views/PhotoPage.vue'
+import PhotoPage from '../views/PhotoPage.vue'
+import AuthorPage from '../views/AuthorPage.vue'
 
 Vue.use(VueRouter)
 
@@ -10,14 +11,17 @@ const routes = [
     path: '/',
     name: 'index',
     component: IndexPage,
-    // children:[{
-    //   path: "/",
-    //   name: 'PhotoPage',
-    //   redirect: "PhotoPage"
-    // }]
   },
-
-
+  {
+      path: "/PhotoPage/:id",
+      name: 'PhotoPage',
+      component: PhotoPage,
+  },
+  {
+      path: "/AuthorPgae",
+      name: 'AuthorPgae',
+      component: AuthorPage,
+  }
 ]
 
 const router = new VueRouter({

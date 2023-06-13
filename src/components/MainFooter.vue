@@ -16,6 +16,6 @@ export default {
 
 <style>
 .foot-body{
-    
+    background-color: white;
 }
 </style>

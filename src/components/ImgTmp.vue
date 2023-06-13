@@ -1,5 +1,5 @@
 <template>
-    <div class="img-item">
+    <div class="img-item" @click="outerClick">
         <!--悬停窗口-->
         <div @mouseenter="isHovered = 1" @mouseleave="isHovered = 0">
             <div class="body-content" :class="bodyContentClass[isHovered]">
@@ -29,6 +29,11 @@ export default {
             bodyContentClass: ['on-body-content-hide', 'on-body-content-show'],
         }
     },
+    methods: {
+        outerClick(e) {
+            this.$emit("click", e)
+        }
+    }
 }
 </script>
 

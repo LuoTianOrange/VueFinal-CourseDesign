@@ -7,7 +7,7 @@
     </router-link>
 </template>
 <script>
-import PhotoPage from '@/views/PhotoPage.vue';
+// import PhotoPage from '@/views/PhotoPage.vue';
 
 export default {
     data: function() {

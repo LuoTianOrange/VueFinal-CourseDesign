@@ -4,11 +4,18 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+  state(){
+    return {
+      PhotoPageImgData: null
+    }
   },
   getters: {
+
   },
   mutations: {
+    setPhotoPageImgData(state, data) {
+      state.PhotoPageImgData = data
+    }
   },
   actions: {
   },
