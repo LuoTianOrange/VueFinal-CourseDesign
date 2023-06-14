@@ -12,25 +12,7 @@
 export default {
     data: function() {
 return {
-        image: [
-            {
-                no: 1,
-                name: "nacho1",
-                author: "nacho",
-                price: 1000,
-                time: "2023-06-09",
-                url: "../assets/1.png"
-            },
-            {
-                no: 2,
-                name: "nacho2",
-                author: "nacho",
-                price: 1000,
-                time: "2023-06-09",
-                url: "../assets/2.png"
-            },
 
-        ]
     };
 }
 }

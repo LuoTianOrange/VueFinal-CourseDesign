@@ -19,7 +19,7 @@
                         <div class="body-nav-item text2">
                             作品
                         </div>
-                        <div class="body-nav-item text2" @click="$event =>gotoAuthorPage()">
+                        <div class="body-nav-item text2">
                             作者
                         </div>
                         <div class="body-nav-item text2">
@@ -70,137 +70,7 @@ export default {
                 { tagText: '国画', tagKey: 'ChinesepPainting' },
                 { tagText: '油画', tagKey: 'canvas' }
             ],
-            image: [
-                {
-                    no: 1,
-                    name: "nacho1",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/1.png`),
-                    type: "animation",
-                    intrduce: `夏コミで出すB2タペストリーの絵柄です!
-                                    なちょ猫と雫ちゃん一緒に描けてよかった (Ｕ＞△＜Ｕ)
-                                    -----
-                                    C96日曜日西地区“め”ブロック一19b です:3
-                                    ウェブカタログ ⇒ https://webcatalog-free.circle.ms/Circle/14510520`
-                },
-                {
-                    no: 2,
-                    name: "nacho2",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/2.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 3,
-                    name: "nacho3",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/3.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 4,
-                    name: "nacho4",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/4.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 5,
-                    name: "nacho5",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/5.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 6,
-                    name: "nacho6",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/6.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 7,
-                    name: "nacho7",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/7.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 8,
-                    name: "nacho8",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2023-06-09",
-                    url: require(`@/assets/8.png`),
-                    type: "animation",
-                    intrduce: `无`
-                },
-                {
-                    no: 9,
-                    name: "Spring",
-                    author: "XingJianhua",
-                    price: 1000,
-                    time: "2023-06-10",
-                    url: require(`@/assets/12.png`),
-                    type: "ChinesepPainting",
-                    intrduce: `无`
-                },
-                {
-                    no: 10,
-                    name: "live-Grove-Orange-Sky_m",
-                    author: "fangao",
-                    price: 1000,
-                    time: "2023-06-11",
-                    url: require(`@/assets/13.png`),
-                    type: "canvas",
-                    intrduce: `无`
-                },
-                {
-                    no: 11,
-                    name: "んにゃ",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2020-12-07",
-                    url: require(`@/assets/14.png`),
-                    type: "animation",
-                    intrduce: `:3`,
-                },
-                {
-                    no: 18,
-                    name: "ohayo nachoneko T",
-                    author: "甘城なつき",
-                    price: 1000,
-                    time: "2020-12-07",
-                    url: require(`@/assets/18.png`),
-                    type: "animation",
-                    intrduce: `新しいTシャツ販売開始しました!
-                            [ https://nanyanostore.com/products/oha-nacho ]
-                            なちょ猫がいつも身につけているヘアクリップも同時に販売しています！
-                            よかったら見てみてね！[ https://nanyanostore.com ]
-                            `,
-                },
-
-            ],
+            image: this.$store.state.image
         };
 
     },

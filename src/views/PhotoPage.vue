@@ -3,8 +3,8 @@
         <div class="body-main">
             <div class="margin-twin">
                 <div class="body-left">
-                    <img :src="img.url" alt="" class="body-img">
-                    <div class="comment-box">
+                    <img :src="img.url" alt="" class="body-img"> <!--图片展示区-->
+                    <div class="comment-box"><!--评论区-->
                         <div style="margin-top: 20px;">
                             <div class="body-text1">评论</div>
                             <div style="display: flex;">
@@ -21,7 +21,7 @@
                     <div class="body-right-item">
                         <div class="item-box">
                             <div class="item-box-info">
-                                <div class="body-text1">{{ img.author }}</div><!--作者名字-->
+                                <div class="body-text1" @click="$event => gotoAuthorPage(img.authorid)">{{ img.author }}</div><!--作者名字-->
                                 <div class="body-text1">{{ img.name }}</div><!--画作名字-->
                                 <div><img src="../assets/like-logo.png" class="like-logo"></div>
                             </div>
@@ -46,7 +46,7 @@
                             <div style="margin: 0 20px;">
                                 <div class="body-text1">标签</div>
                                 <div class="tag-item">
-                                    <div class="tag">girls</div>
+                                    <div class="tag" v-for="imgtag in image" :key="imgtag">{{ imgtag.tag }}</div>
                                     <div class="tag" style="background-color: #fb7299;">pink</div>
                                     <div class="tag" style="background-color: #dd001b;">red</div>
                                 </div>
@@ -63,12 +63,20 @@
 export default {
     data() {
         return {
-            img: {}
+            img: {},
+            image: this.$store.state.image
         }
     },
     mounted() {
-        this.$data.img = this.$store.state.PhotoPageImgData
+        this.$data.img = this.$store.state.PhotoPageImgData ?? JSON.parse(localStorage.getItem("PhotoPageImgData") ?? {})
     },
+    methods: {
+        gotoAuthorPage(authorid) {
+            console.log(authorid);
+            // this.$store.commit("setPhotoPageImgData", author)
+            this.$router.push(`/AuthorPage/${authorid}`)
+        }
+    }
 }
 </script>
 
@@ -182,7 +190,8 @@ export default {
     outline: none;
     margin-top: 2px;
 }
-.comment-btn{
+
+.comment-btn {
     width: 76px;
     height: 40px;
     background-color: #0096fa;
@@ -190,18 +199,19 @@ export default {
     color: white;
     font-size: 15px;
     font-weight: bolder;
-    border-style:none;
+    border-style: none;
     margin: 0 10px;
 }
-.tag-item{
+
+.tag-item {
     display: flex;
-    flex-wrap: warp;
+    flex-wrap: wrap;
 }
-.tag{
+
+.tag {
     color: white;
     background-color: yellowgreen;
     padding: 4px 10px;
     border-radius: 6px;
     margin: 5px 5px 0 0;
-}
-</style>
+}</style>

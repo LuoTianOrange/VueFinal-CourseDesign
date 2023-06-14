@@ -18,8 +18,8 @@ const routes = [
       component: PhotoPage,
   },
   {
-      path: "/AuthorPgae",
-      name: 'AuthorPgae',
+      path: "/AuthorPage/:id",
+      name: 'AuthorPage',
       component: AuthorPage,
   }
 ]
