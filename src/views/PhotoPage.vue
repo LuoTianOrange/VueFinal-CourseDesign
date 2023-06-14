@@ -46,7 +46,7 @@
                             <div style="margin: 0 20px;">
                                 <div class="body-text1">标签</div>
                                 <div class="tag-item">
-                                    <div class="tag" v-for="imgtag in image" :key="imgtag">{{ imgtag.tag }}</div>
+                                    <div class="tag" v-for="imgtag in image.tag" :key="imgtag.tno" >{{ imgtag.tname }}</div>
                                     <div class="tag" style="background-color: #fb7299;">pink</div>
                                     <div class="tag" style="background-color: #dd001b;">red</div>
                                 </div>
@@ -60,7 +60,10 @@
 </template>
 
 <script>
+// import CommentItem from '@/components/CommentItem.vue'
+
 export default {
+    // components: CommentItem,
     data() {
         return {
             img: {},
@@ -159,7 +162,7 @@ export default {
     text-align: left;
     margin-top: 10px;
 }
-
+/*评论区*/
 .comment-box {
     width: 800px;
     min-height: 300px;

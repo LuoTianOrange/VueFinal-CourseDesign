@@ -46,9 +46,11 @@ export default new Vuex.Store({
           time: "2023-06-09",
           url: require(`@/assets/1.png`),
           type: "animation",
-          tag: [{tno:1,tname:"2 girls"}, 
+          tag: [
+          {tno:1,tname:"2 girls"}, 
           {tno:2,tname:"swimsuit"}, 
-          {tno:3,tname:"icecream"}],
+          {tno:3,tname:"icecream"}
+          ],
           intrduce: `夏コミで出すB2タペストリーの絵柄です!
                        なちょ猫と雫ちゃん一緒に描けてよかった (Ｕ＞△＜Ｕ)
                        -----
