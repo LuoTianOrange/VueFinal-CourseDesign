@@ -3,10 +3,16 @@ body {
     margin: 0;
     padding: 0;
 }
-:root{
+
+a {
+    text-decoration: none;
+}
+
+:root {
     --red: #dd001b;
     --pink: #fb7299;
 }
+
 .body {
     width: 100%;
     min-height: 1000px;

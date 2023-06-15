@@ -6,10 +6,10 @@
                 <div style="margin: 20px;text-align: left;">
                     <div style="font-weight: bolder;">项目结构:IndexPage(主页),PhotoPage(图片详细界面),AuthorPage(作者详细页面)</div>
                     <div>
-                        项目组件:Comment(评论区),DropDownTagTmp(首页下拉列表),ImgItem(画作展示盒),ImgTmp(画作悬停显示),MainFooter(底部栏),MainHeader(头部导航栏)
+                        项目组件:CommentItem(评论区),DropDownTagTmp(首页下拉列表),ImgItem(画作展示盒),ImgTmp(画作悬停显示),MainFooter(底部栏),MainHeader(头部导航栏)
                     </div>
                     <div>待实现功能:点击作者名字跳转作者详细页面,作者详细页面可以展示和打开画作;发送评论,点赞;主页切换画作和作者</div>
-                    <div>可能实现的功能:全局搜索框,登录注册</div>
+                    <div>可能实现的功能:全局搜索框,登录注册,根据标签名字匹配标签颜色,点击标签自动将标签置入搜索框搜索对应关键词</div>
                 </div>
             </div>
             <!--画作展示栏-->
@@ -21,12 +21,6 @@
                         </div>
                         <div class="body-nav-item text2">
                             作者
-                        </div>
-                        <div class="body-nav-item text2">
-                            最喜欢的作者
-                        </div>
-                        <div class="body-nav-item text2">
-                            受欢迎的作者
                         </div>
                     </div>
                     <hr color="#e6ecf0">

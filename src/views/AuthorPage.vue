@@ -149,7 +149,7 @@ export default {
   background-size: cover;
   background-image: url(../assets/19.png);
 }
-
+/*作者简介*/
 .author-info {
   width: 100%;
   height: 100px;
@@ -160,9 +160,9 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
+/*作者头像*/
 .author-header {
-  background-image: url(../assets/3.png);
+  background-image: url(../assets/20.png);
   display: block;
   width: 200px;
   height: 200px;
@@ -171,8 +171,9 @@ export default {
   position: relative;
   top: -60px;
   right: 60px;
+  border: 2px solid white;
   border-radius: 50%;
-  background-position: 50%;
+  /* background-position: 50%; */
   box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
 }
 

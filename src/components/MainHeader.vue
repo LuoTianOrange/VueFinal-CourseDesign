@@ -2,12 +2,14 @@
     <!-- 头部导航栏 -->
     <div class="head">
         <div class="main-header">
-            <div class="head-item" style="margin-left: 60px;">
-                <img src="../assets/logo.png" alt="logo" width="40px">
-            </div>
-            <div class="head-item">
-                <div class="text1">橘橘画廊</div>
-            </div>
+            <router-link to="/" style="display: flex;align-items: center;">
+                <div class="head-item" style="margin-left: 60px;">
+                    <img src="../assets/OrangeLogo.png" alt="logo" width="40px">
+                </div>
+                <div class="head-item">
+                    <div class="text1">橘橘画廊</div>
+                </div>
+            </router-link>
             <div class="head-item" style="flex: 1;">
                 <div class="head-search">
                     <img src="../assets/serach-logo.png" alt="search" class="logo-search">
@@ -31,10 +33,11 @@
 </script>
 
 <style>
-.head{
+.head {
     height: 55px;
     width: 100%;
 }
+
 .main-header {
     height: 100%;
     width: 100%;

@@ -4,24 +4,14 @@
             <div class="margin-twin">
                 <div class="body-left">
                     <img :src="img.url" alt="" class="body-img"> <!--图片展示区-->
-                    <div class="comment-box"><!--评论区-->
-                        <div style="margin-top: 20px;">
-                            <div class="body-text1">评论</div>
-                            <div style="display: flex;">
-                                <div class="comment-input-border">
-                                    <input class="comment-input" placeholder="发表评论" />
-                                </div>
-                                <button class="comment-btn">发送</button>
-                            </div>
-                            <div class="comment-item"></div>
-                        </div>
-                    </div>
+                    <Comment></Comment><!--评论区-->
                 </div>
                 <div class="body-right">
                     <div class="body-right-item">
                         <div class="item-box">
                             <div class="item-box-info">
-                                <div class="body-text1" @click="$event => gotoAuthorPage(img.authorid)">{{ img.author }}</div><!--作者名字-->
+                                <div class="body-text1" @click="$event => gotoAuthorPage(img.authorid)">{{ img.author }}
+                                </div><!--作者名字-->
                                 <div class="body-text1">{{ img.name }}</div><!--画作名字-->
                                 <div><img src="../assets/like-logo.png" class="like-logo"></div>
                             </div>
@@ -46,7 +36,7 @@
                             <div style="margin: 0 20px;">
                                 <div class="body-text1">标签</div>
                                 <div class="tag-item">
-                                    <div class="tag" v-for="imgtag in image.tag" :key="imgtag.tno" >{{ imgtag.tname }}</div>
+                                    <div class="tag" v-for="imgtag in img.tag" :key="imgtag.tno">{{ imgtag.tname}}</div>
                                     <div class="tag" style="background-color: #fb7299;">pink</div>
                                     <div class="tag" style="background-color: #dd001b;">red</div>
                                 </div>
@@ -60,10 +50,10 @@
 </template>
 
 <script>
-// import CommentItem from '@/components/CommentItem.vue'
+import Comment from '@/components/CommentItem.vue'
 
 export default {
-    // components: CommentItem,
+    components: { Comment },
     data() {
         return {
             img: {},
@@ -162,6 +152,7 @@ export default {
     text-align: left;
     margin-top: 10px;
 }
+
 /*评论区*/
 .comment-box {
     width: 800px;
@@ -217,4 +208,5 @@ export default {
     padding: 4px 10px;
     border-radius: 6px;
     margin: 5px 5px 0 0;
-}</style>
+}
+</style>
