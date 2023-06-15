@@ -12,23 +12,30 @@ export default new Vuex.Store({
         {
           userid: "1",
           username: "甘城なつき",
-          userinfo: "甘城（あましろ）なつきです。 Nachoneko desu.",
-          userheader: "",
-          userbackgroud: "../assets/19.png"
+          userinfo: "甘城(あましろ)なつきです。 Nachoneko desu.",
+          userheader: "/image/20.png",
+          userbackgroud: "/image/19.png"
         },
         {
           userid: "2",
-          username: "XingJianhua",
-          userinfo: "",
-          userheader: "",
+          username: "宁建华",
+          userinfo: "宁建华,号山魂,生于1968年,河北省石家庄人,现为职业画家,河北省美协会员,自幼拜中国国画院著名画家高月冬为师,后又进修中央美院国画系深造,宁建华擅长山水画,经常独自云游写生,足迹名山大川,拜访多位名师,其作品气势宏伟,很有艺术价值,2014年创办太行画院,2016年参加(仁孝华夏情公益中国梦)画展获二等奖",
+          userheader: "/image/23.png",
           userbackgroud: ""
         },
         {
           userid: "3",
-          username: "fangao",
-          userinfo: "",
-          userheader: "",
-          userbackgroud: ""
+          username: "梵高",
+          userinfo: "文森特·威廉·梵高(Vincent Willem van Gogh,1853年3月30日—1890年7月29日),荷兰后印象派画家。代表作有《星月夜》、自画像系列、向日葵系列等。",
+          userheader: "/image/22.png",
+          userbackgroud: "/image/21.png"
+        },
+        {
+          userid: "4",
+          username: "しらたま❄",
+          userinfo: "イラストレーター・原画家です。コメントなどありがとうございます！『星空鉄道とシロの旅』『あまいろショコラータ』『しゅがてん』 『アズールレーン』文月・長月 『にじさんじ』えま★おうがすと 各種キャラクターデザイン、原画、描き下ろしなど",
+          userheader: "/image/25.png",
+          userbackgroud: "/image/24.png"
         },
       ],
       keyNames: [
@@ -142,7 +149,7 @@ export default new Vuex.Store({
         {
           no: 9,
           name: "Spring",
-          author: "XingJianhua",
+          author: "宁建华",
           authorid:"2",
           price: 1000,
           time: "2023-06-10",
@@ -153,7 +160,7 @@ export default new Vuex.Store({
         {
           no: 10,
           name: "live-Grove-Orange-Sky_m",
-          author: "fangao",
+          author: "梵高",
           authorid:"3",
           price: 1000,
           time: "2023-06-11",
@@ -173,7 +180,7 @@ export default new Vuex.Store({
           intrduce: `:3`,
         },
         {
-          no: 18,
+          no: 12,
           name: "ohayo nachoneko T",
           author: "甘城なつき",
           authorid:"1",
@@ -187,9 +194,51 @@ export default new Vuex.Store({
                     よかったら見てみてね！[ https://nanyanostore.com ]
                     `,
         },
+        {
+          no: 13,
+          name: "✯ ✰ ✮",
+          author: "しらたま❄",
+          authorid:"4",
+          price: 1000,
+          time: "2021-12-09",
+          url: require(`@/assets/26.png`),
+          type: "animation",
+          tag: [
+            {tno:1,tname:"原创"}, 
+            {tno:2,tname:"しろいいぬ"}, 
+            {tno:3,tname:"原创7500收藏"}
+            ],
+          intrduce: `リクエストで描かせていただきました、ありがとうございました✯`,
+        },
+        {
+          no: 14,
+          name: "🎀",
+          author: "しらたま❄",
+          authorid:"4",
+          price: 1000,
+          time: "2022-01-10",
+          url: require(`@/assets/27.png`),
+          type: "animation",
+          tag: [
+            {tno:1,tname:"猫耳"}, 
+            {tno:2,tname:"headdress"}, 
+            {tno:3,tname:"オリジナル10000users入り"}
+            ],
+          intrduce: `イラストレーター・月見先生のお誕生日に月見先生のオリジナルキャラクターを描かせていただきました！`,
+        },
 
       ],
-      
+      CommentSection: {
+        1: [
+          {
+            id: 1,
+            name: "eli",
+            avatar: "../",
+            text: "test",
+            time: ""
+          }
+        ]
+      }
     }
   },
   getters: {

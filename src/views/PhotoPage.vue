@@ -65,7 +65,7 @@ export default {
     },
     methods: {
         gotoAuthorPage(authorid) {
-            console.log(authorid);
+            // console.log(authorid);
             // this.$store.commit("setPhotoPageImgData", author)
             this.$router.push(`/AuthorPage/${authorid}`)
         }

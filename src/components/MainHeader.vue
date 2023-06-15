@@ -7,7 +7,8 @@
                     <img src="../assets/OrangeLogo.png" alt="logo" width="40px">
                 </div>
                 <div class="head-item">
-                    <div class="text1">橘橘画廊</div>
+                    <div class="header-text1" :style="activeColor" @mouseenter="headerEnter()" @mouseleave="headerLeave()">
+                        橘橘画廊</div>
                 </div>
             </router-link>
             <div class="head-item" style="flex: 1;">
@@ -29,13 +30,33 @@
 </template>
 
 <script>
-
+export default {
+    data() {
+        return {
+            activeColor: "color :  #000",//悬停区文字原始颜色
+        }
+    },
+    methods: {
+        headerEnter() {
+            this.activeColor = "color : #eead6d";//悬停区改变文字原始颜色
+        },
+        headerLeave() {
+            this.activeColor = "color :  #000";//悬停区恢复文字原始颜色
+        },
+    },
+}
 </script>
 
 <style>
 .head {
     height: 55px;
     width: 100%;
+}
+
+.header-text1 {
+    font-size: 22px;
+    font-family: 仓耳渔阳体;
+    /* font-weight: bolder; */
 }
 
 .main-header {

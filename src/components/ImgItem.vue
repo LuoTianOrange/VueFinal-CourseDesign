@@ -2,7 +2,7 @@
     <!-- 图片展示框 -->
     <router-link to="/PhotoPage">
         <div class="img-item">
-            <img :src="url" alt="" class="body-img">
+            <img :src="$attrs.url" alt="" class="body-img">
         </div>
     </router-link>
 </template>
@@ -11,10 +11,12 @@
 
 export default {
     data: function() {
-return {
+        return {
 
-    };
-}
+        };
+    },
+    mounted() {
+    }
 }
 </script>
 <style>

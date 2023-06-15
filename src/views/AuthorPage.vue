@@ -1,11 +1,11 @@
 <template>
   <div class="body">
     <div class="author">
-      <div class="author-background">
+      <div class="author-background" :style="{ backgroundImage: `url(${getAuthorBackgroundById(author.userid)})` }">
       </div>
       <div>
         <div class="author-info">
-          <span class="author-header"></span>
+          <span class="author-header" :style="{ backgroundImage: `url(${getUserHeaderById(author.userid)})` }"></span>
           <div style="width: 800px;height: 100px;">
             <div class="body-text1">{{ author.username }}</div>
             <div class="body-text2">{{ author.userinfo }}</div>
@@ -20,15 +20,10 @@
             <div class="body-nav-item">作品</div>
           </div>
           <hr color="#e6ecf0">
-          <div style="display: flex;flex-wrap: wrap;" >
-            <img-item class="body-item" v-for="photo in image" 
-            :key="photo.no" 
-            :value="photo.url" 
-            :name="photo.name"
-            :author="photo.author" 
-            :time="photo.time" 
-            v-show="photo.userid === id" 
-            @click="gotoPhotoPage(photo)"><!--要改-->
+          <div style="display: flex;flex-wrap: wrap;">
+            <img-item class="body-item" v-for="photo in image" :key="photo.no" :value="photo.url" :name="photo.name"
+              :author="photo.author" :time="photo.time" v-show="photo.authorid === $route.params.id"
+              @click="gotoPhotoPage(photo)"><!--要改-->
             </img-item>
           </div>
         </div>
@@ -38,7 +33,7 @@
 </template>
 
 <script>
-import ImgItem from '@/components/ImgItem.vue';
+import ImgItem from '@/components/ImgTmp.vue';
 
 export default {
   components: {
@@ -53,7 +48,7 @@ export default {
     }
   },
   mounted() {
-    const {id} = this.$route.params
+    const { id } = this.$route.params
     const image = this.$store.state.image
     const res = []
     for (const img of image) {
@@ -83,7 +78,23 @@ export default {
   },
   created() {
     this.setPhotoPageImgData = this.$store.setPhotoPageImgData
-  }
+  },
+  computed: {
+    getUserHeaderById() {
+      //通过userid匹配userheader
+      return (userid) => {
+        const user = this.$store.state.user.find((u) => u.userid === userid);
+        return user ? user.userheader : '';
+      };
+    },
+    getAuthorBackgroundById() {
+      return (userid) => {
+        const user = this.$store.state.user.find((u) => u.userid === userid);
+        return user ? user.userbackgroud : '';
+      };
+    },
+  },
+
 }
 </script>
 
@@ -147,8 +158,9 @@ export default {
   overflow: hidden;
   background-position: 50%;
   background-size: cover;
-  background-image: url(../assets/19.png);
+  /* background-image: url(../assets/19.png); */
 }
+
 /*作者简介*/
 .author-info {
   width: 100%;
@@ -160,9 +172,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 /*作者头像*/
 .author-header {
-  background-image: url(../assets/20.png);
+  /* background-image: url(../assets/20.png); */
   display: block;
   width: 200px;
   height: 200px;

@@ -4,18 +4,48 @@
             <div class="body-text1">评论</div>
             <div style="display: flex;">
                 <div class="comment-input-border">
-                    <input class="comment-input" placeholder="发表评论" />
+                    <input class="comment-input" placeholder="发表评论" maxlength="80" />
                 </div>
-                <button class="comment-btn">发送</button>
+                <form @submit.prevent="addComment">
+                    <button class="comment-btn" type="submit">发送</button>
+                </form>
             </div>
-            <div class="comment-item"></div>
+            <div class="comment-item" v-for="comment in commentsList" :key="comment.id">
+                <div class="comment-item-box">
+                    <div class="comment-user-header"></div>
+                    <div>
+                        <div class="comment-text1">{{ comment.name }}</div>
+                        <div class="comment-text2">{{ comment.text }}</div>
+                        <div class="comment-text3">{{ comment.time }}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
-    props: ["avatar", "name", "content", "date"]
+    props: ["avatar", "name", "content", "date"],
+
+    data() {
+        return {
+            commentList: []
+        }
+    },
+    mounted() {
+        this.commentList = this.$store.state.CommentSection[this.$route.params.id]
+    },
+    methods: {
+        addComment() {
+            if (this.newComment.trim() !== '') {
+                const newId = this.comments.length + 1;
+                this.comments.push({ id: newId, text: this.newComment });
+                this.newComment = '';
+            }
+        }
+    }
 }
 </script>
 
@@ -37,11 +67,7 @@ export default {
     height: 40px;
     border-radius: 5px;
     border: 2px solid #bdbdbd;
-}
-
-.comment-item {
-    min-width: 600px;
-    min-height: 100px;
+    margin-top: 10px;
 }
 
 .comment-input {
@@ -61,7 +87,7 @@ export default {
     font-size: 15px;
     font-weight: bolder;
     border-style: none;
-    margin: 0 10px;
+    margin: 10px 0px 0 20px;
 }
 
 .body-text1 {
@@ -69,5 +95,47 @@ export default {
     font-size: 20px;
     font-weight: bolder;
     line-break: anywhere;
+}
+
+.comment-item {
+    min-width: 600px;
+    min-height: 100px;
+    margin-top: 20px;
+}
+
+.comment-item-box {
+    display: flex;
+}
+
+.comment-user-header {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-sizing: inherit;
+    background-size: cover;
+    background-image: url(../assets/00.png);
+    margin-right: 20px;
+}
+
+.comment-text1 {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #000;
+}
+
+.comment-text2 {
+    text-align: left;
+    font-size: 15px;
+    font-weight: normal;
+    color: #000;
+    margin: 5px 0;
+}
+
+.comment-text3 {
+    text-align: left;
+    font-size: 15px;
+    font-weight: normal;
+    color: #999999;
 }
 </style>

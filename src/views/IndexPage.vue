@@ -8,7 +8,7 @@
                     <div>
                         项目组件:CommentItem(评论区),DropDownTagTmp(首页下拉列表),ImgItem(画作展示盒),ImgTmp(画作悬停显示),MainFooter(底部栏),MainHeader(头部导航栏)
                     </div>
-                    <div>待实现功能:点击作者名字跳转作者详细页面,作者详细页面可以展示和打开画作;发送评论,点赞;主页切换画作和作者</div>
+                    <div>待实现功能:<span style="text-decoration: line-through;">点击作者名字跳转作者详细页面,作者详细页面可以展示和打开画作;</span>发送评论,点赞;<span style="text-decoration: line-through;">主页切换画作和作者</span></div>
                     <div>可能实现的功能:全局搜索框,登录注册,根据标签名字匹配标签颜色,点击标签自动将标签置入搜索框搜索对应关键词</div>
                 </div>
             </div>
@@ -16,24 +16,38 @@
             <div class="body-box2">
                 <div class="body-leftmargin">
                     <div class="body-nav">
-                        <div class="body-nav-item text2">
+                        <div class="body-nav-item text2" @click="switchAuthor(false)">
                             作品
                         </div>
-                        <div class="body-nav-item text2">
+                        <div class="body-nav-item text2" @click="switchAuthor(true)">
                             作者
                         </div>
                     </div>
                     <hr color="#e6ecf0">
-                    <drop-down-tag v-for="attr in keyNames" :tagName="attr.tagText" :key="attr.tagKey">
+                    <div v-show="showAuthor == false">
+                        <drop-down-tag v-for="attr in keyNames" :tagName="attr.tagText" :key="attr.tagKey">
+                            <div class="body-leftmargin">
+                                <div style="display: flex;flex-wrap: wrap;">
+                                    <img-item class="body-item" v-for="photo in image" :key="photo.no" :value="photo.url"
+                                        :name="photo.name" :author="photo.author" :time="photo.time"
+                                        v-show="photo.type === attr.tagKey" @click="gotoPhotoPage(photo)">
+                                    </img-item>
+                                </div>
+                            </div>
+                        </drop-down-tag>
+                    </div>
+                    <div v-show="showAuthor == true">
                         <div class="body-leftmargin">
                             <div style="display: flex;flex-wrap: wrap;">
-                                <img-item class="body-item" v-for="photo in image" :key="photo.no" :value="photo.url"
-                                    :name="photo.name" :author="photo.author" :time="photo.time"
-                                    v-show="photo.type === attr.tagKey" @click="gotoPhotoPage(photo)">
+                                <img-item class="body-item" v-for="users in user"
+                                    :key="users.userid"
+                                    :value="users.userheader"
+                                    :author="users.username"
+                                    @click="gotoAuthorPage(users)">
                                 </img-item>
                             </div>
                         </div>
-                    </drop-down-tag>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +59,6 @@
 import DropDownTag from '@/components/DropDownTagTmp.vue';
 import ImgItem from '@/components/ImgTmp.vue';
 
-
 export default {
     components: {
         DropDownTag,
@@ -54,8 +67,11 @@ export default {
     data() {
 
         return {
+            showAuthor: false,
             isHovered: false,
             activePhoto: "display: none",
+            activeColor: "color :  #777777",//悬停区文字原始颜色
+            activeColor1: "color :  #777777",//悬停区文字原始颜色
             // animation 动漫
             // ChinesepPainting 国画
             // canvas 油画
@@ -64,7 +80,8 @@ export default {
                 { tagText: '国画', tagKey: 'ChinesepPainting' },
                 { tagText: '油画', tagKey: 'canvas' }
             ],
-            image: this.$store.state.image
+            image: this.$store.state.image,
+            user: this.$store.state.user
         };
 
     },
@@ -79,8 +96,10 @@ export default {
             this.$router.push(`/PhotoPage/${img.no}`)
         },
         gotoAuthorPage(author) {
-            this.$store.commit("setPhotoPageImgData", author)
-            this.$router.push(`/AuthorPage/`)
+            this.$router.push(`/AuthorPage/${author.userid}`)
+        },
+        switchAuthor(choose) {
+            this.showAuthor = choose
         }
     }
 }
@@ -142,7 +161,12 @@ export default {
 .body-nav-item {
     margin: 0 10px;
     overflow: hidden;
+    color: #777;
     /* border: 1px solid #000; */
+}
+
+.body-nav-item:hover {
+    color: #eead6d;
 }
 
 /*页面主体内容样式*/
@@ -247,5 +271,4 @@ export default {
     display: flex;
     align-items: center;
     margin: 15px 0;
-}
-</style>
+}</style>

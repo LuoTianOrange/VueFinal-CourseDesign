@@ -2,7 +2,7 @@
           <div class="foot">
             <div class="foot-body">
                 <div class="foot-body-text">
-                    Copyright 大橘猫
+                    Copyright 大橘猫-Vue期末课设
                 </div>
             </div>
         </div>
