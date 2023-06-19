@@ -4,7 +4,7 @@
             <div class="margin-twin">
                 <div class="body-left">
                     <img :src="img.url" alt="" class="body-img"> <!--图片展示区-->
-                    <Comment></Comment><!--评论区-->
+
                 </div>
                 <div class="body-right">
                     <div class="body-right-item">
@@ -36,7 +36,7 @@
                             <div style="margin: 0 20px;">
                                 <div class="body-text1">标签</div>
                                 <div class="tag-item">
-                                    <div class="tag" v-for="imgtag in img.tag" :key="imgtag.tno">{{ imgtag.tname}}</div>
+                                    <div class="tag" v-for="imgtag in img.tag" :key="imgtag.tno">{{ imgtag.tname }}</div>
                                     <div class="tag" style="background-color: #fb7299;">pink</div>
                                     <div class="tag" style="background-color: #dd001b;">red</div>
                                 </div>
@@ -44,6 +44,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="body-main">
+            <div class="comment-postion">
+                <Comment></Comment><!--评论区-->
             </div>
         </div>
     </div>
@@ -84,13 +89,43 @@ export default {
 .body-left {
     display: flex;
     flex-direction: column;
-    margin: 0 15px 15px 0;
+    margin: 0 15px 15px 15px;
     align-items: center;
     /* width: 60%; */
 }
 
-.body-right {
-    min-width: 500px;
+@media screen and (width >=1385px) {
+    .body-right {
+        width: 500px;
+
+    }
+}
+
+@media screen and (width < 1385px){
+    .body-right {
+        width: 800px;
+
+    }
+}
+
+/* @media screen and (width < 840px) {
+    .body-right {
+        width: 97%;
+
+    }
+} */
+
+@media screen and (width >=1385px) {
+    .comment-postion {
+        position: relative;
+        right: 250px;
+    }
+
+}
+@media screen and (width < 1385px) {
+    .comment-postion {
+        position: relative;
+    }
 
 }
 
@@ -108,7 +143,7 @@ export default {
 }
 
 .body-right-item {
-    width: 500px;
+    width: 100%;
     min-height: 100px;
     margin-top: 20px;
     background-color: white;

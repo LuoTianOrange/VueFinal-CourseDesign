@@ -21,7 +21,7 @@ export default new Vuex.Store({
           username: "宁建华",
           userinfo: "宁建华,号山魂,生于1968年,河北省石家庄人,现为职业画家,河北省美协会员,自幼拜中国国画院著名画家高月冬为师,后又进修中央美院国画系深造,宁建华擅长山水画,经常独自云游写生,足迹名山大川,拜访多位名师,其作品气势宏伟,很有艺术价值,2014年创办太行画院,2016年参加(仁孝华夏情公益中国梦)画展获二等奖",
           userheader: "/image/23.png",
-          userbackgroud: ""
+          userbackgroud: "/image/12.png"
         },
         {
           userid: "3",
@@ -36,6 +36,13 @@ export default new Vuex.Store({
           userinfo: "イラストレーター・原画家です。コメントなどありがとうございます！『星空鉄道とシロの旅』『あまいろショコラータ』『しゅがてん』 『アズールレーン』文月・長月 『にじさんじ』えま★おうがすと 各種キャラクターデザイン、原画、描き下ろしなど",
           userheader: "/image/25.png",
           userbackgroud: "/image/24.png"
+        },
+        {
+          userid: "5",
+          username: "HOJI",
+          userinfo: "ご連絡、お仕事ご相談は hooooooooji9999@gmail.com まで",
+          userheader: "/image/30.png",
+          userbackgroud: "/image/31.jpg"
         },
       ],
       keyNames: [
@@ -136,17 +143,6 @@ export default new Vuex.Store({
           intrduce: `无`
         },
         {
-          no: 8,
-          name: "nacho8",
-          author: "甘城なつき",
-          authorid:"1",
-          price: 1000,
-          time: "2023-06-09",
-          url: require(`@/assets/8.png`),
-          type: "animation",
-          intrduce: `无`
-        },
-        {
           no: 9,
           name: "Spring",
           author: "宁建华",
@@ -225,6 +221,54 @@ export default new Vuex.Store({
             {tno:3,tname:"オリジナル10000users入り"}
             ],
           intrduce: `イラストレーター・月見先生のお誕生日に月見先生のオリジナルキャラクターを描かせていただきました！`,
+        },
+        {
+          no: 15,
+          name: "ハコイリムスメ",
+          author: "HOJI",
+          authorid:"5",
+          price: 1000,
+          time: "2022-01-10",
+          url: require(`@/assets/28.jpg`),
+          type: "animation",
+          tag: [
+            {tno:1,tname:"猫耳"}, 
+            {tno:2,tname:"銀髪"}, 
+            {tno:3,tname:"房间"}
+            ],
+          intrduce: `无`,
+        },
+        {
+          no: 16,
+          name: "秘密基地",
+          author: "HOJI",
+          authorid:"5",
+          price: 1000,
+          time: "2021-03-20",
+          url: require(`@/assets/29.jpg`),
+          type: "animation",
+          tag: [
+            {tno:1,tname:"猫耳"}, 
+            {tno:2,tname:"废墟"}, 
+            {tno:3,tname:"房间"}
+            ],
+          intrduce: `无`,
+        },
+        {
+          no: 17,
+          name: "「GG~ありがと〜！」",
+          author: "HOJI",
+          authorid:"5",
+          price: 1000,
+          time: "2021-03-20",
+          url: require(`@/assets/31.jpg`),
+          type: "animation",
+          tag: [
+            {tno:1,tname:"猫耳"}, 
+            {tno:2,tname:"銀髪"}, 
+            {tno:3,tname:"房间"}
+            ],
+          intrduce: `无`,
         },
 
       ],
