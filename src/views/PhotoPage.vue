@@ -13,7 +13,8 @@
                                 <div class="body-text1" @click="$event => gotoAuthorPage(img.authorid)">{{ img.author }}
                                 </div><!--作者名字-->
                                 <div class="body-text1">{{ img.name }}</div><!--画作名字-->
-                                <div><img src="../assets/like-logo.png" class="like-logo"></div>
+                                <div class="like-logo" v-show="isLiked == false" @click="cilckLike"></div>
+                                <div class="dislike-logo" v-show="isLiked == true" @click="cilckDisLike" style="color: red;"></div>
                             </div>
                         </div>
                         <hr style="margin: 0;">
@@ -62,7 +63,8 @@ export default {
     data() {
         return {
             img: {},
-            image: this.$store.state.image
+            image: this.$store.state.image,
+            isLiked: false
         }
     },
     mounted() {
@@ -73,8 +75,19 @@ export default {
             // console.log(authorid);
             // this.$store.commit("setPhotoPageImgData", author)
             this.$router.push(`/AuthorPage/${authorid}`)
+        },
+        cilckLike(){
+            this.isLiked = true
+        },
+        cilckDisLike(){
+            this.isLiked = false
+        },
+        PhotoLike(isLiked){
+            console.log(isLiked);
+            this.$route.commit("setPhotoLike",isLiked)
         }
-    }
+    },
+
 }
 </script>
 
@@ -184,8 +197,21 @@ export default {
 
 .like-logo {
     width: 20px;
+    height: 20px;
     text-align: left;
+    font-size: 27px;
     margin-top: 10px;
+    background-image: url("../assets/like-logo.png");
+    background-size: cover;
+}
+.dislike-logo {
+    width: 20px;
+    height: 20px;
+    text-align: left;
+    font-size: 27px;
+    margin-top: 10px;
+    background-image: url("../assets/liked-logo.png");
+    background-size: cover;
 }
 
 /*评论区*/

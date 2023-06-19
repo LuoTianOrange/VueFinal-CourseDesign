@@ -10,7 +10,7 @@
                     <button class="comment-btn" type="submit">发送</button>
                 </form>
             </div>
-            <div class="comment-item" v-for="comment in commentsList" :key="comment.id">
+            <div class="comment-item" v-for="comment in commentList" :key="comment.id">
                 <div class="comment-item-box">
                     <div class="comment-user-header"></div>
                     <div>
@@ -38,6 +38,7 @@ export default {
         this.commentList = this.$store.state.CommentSection[this.$route.params.id]
     },
     methods: {
+        //没写完的
         addComment() {
             if (this.newComment.trim() !== '') {
                 const newId = this.comments.length + 1;

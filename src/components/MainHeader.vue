@@ -7,7 +7,7 @@
                     <img src="../assets/OrangeLogo.png" alt="logo" width="40px">
                 </div>
                 <div class="head-item">
-                    <div class="header-text1" :style="activeColor" @mouseenter="headerEnter()" @mouseleave="headerLeave()">
+                    <div class="header-text1" >
                         橘橘画廊</div>
                 </div>
             </router-link>
@@ -33,16 +33,11 @@
 export default {
     data() {
         return {
-            activeColor: "color :  #000",//悬停区文字原始颜色
+           
         }
     },
     methods: {
-        headerEnter() {
-            this.activeColor = "color : #eead6d";//悬停区改变文字原始颜色
-        },
-        headerLeave() {
-            this.activeColor = "color :  #000";//悬停区恢复文字原始颜色
-        },
+        
     },
 }
 </script>
@@ -57,6 +52,11 @@ export default {
     font-size: 22px;
     font-family: 仓耳渔阳体;
     /* font-weight: bolder; */
+    color: #000;
+}
+
+.header-text1:hover {
+    color: #eead6d;
 }
 
 .main-header {

@@ -70,8 +70,6 @@ export default {
             showAuthor: false,
             isHovered: false,
             activePhoto: "display: none",
-            activeColor: "color :  #777777",//悬停区文字原始颜色
-            activeColor1: "color :  #777777",//悬停区文字原始颜色
             // animation 动漫
             // ChinesepPainting 国画
             // canvas 油画
@@ -91,7 +89,7 @@ export default {
     },
     methods: {
         gotoPhotoPage(img) {
-            // console.log(img);
+            //发生点击图片的页面到vuex，创建缓存
             this.$store.commit("setPhotoPageImgData", img)
             this.$router.push(`/PhotoPage/${img.no}`)
         },
