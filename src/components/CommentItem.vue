@@ -3,10 +3,10 @@
         <div style="margin-top: 20px;">
             <div class="body-text1">评论</div>
             <div style="display: flex;">
-                <div class="comment-input-border">
-                    <input class="comment-input" placeholder="发表评论" maxlength="80" />
-                </div>
-                <form @submit.prevent="addComment">
+                <form @submit.prevent="addComment" style="display: flex;">
+                    <div class="comment-input-border">
+                        <input class="comment-input" placeholder="发表评论" maxlength="80" v-model="newComment" />
+                    </div>
                     <button class="comment-btn" type="submit">发送</button>
                 </form>
             </div>
@@ -31,19 +31,27 @@ export default {
 
     data() {
         return {
-            commentList: []
+            commentList: [],
+            trim: "",
+            newComment: ""
         }
     },
     mounted() {
         this.commentList = this.$store.state.CommentSection[this.$route.params.id]
     },
     methods: {
-        //没写完的
+        //添加新评论
         addComment() {
-            if (this.newComment.trim() !== '') {
-                const newId = this.comments.length + 1;
-                this.comments.push({ id: newId, text: this.newComment });
+            if (this.newComment !== '') {
+                const newId = this.commentList.length + 1;
+                this.commentList.push({ id: newId, text: this.newComment, name: "user" });
+                this.$store.commit("setComments", {
+                    id: this.$route.params.id,
+                    list: this.commentList
+                })
                 this.newComment = '';
+            } else {
+                alert("评论不能为空！")
             }
         }
     }
@@ -100,12 +108,13 @@ export default {
 
 .comment-item {
     min-width: 600px;
-    min-height: 100px;
+    min-height: 80px;
     margin-top: 20px;
 }
 
 .comment-item-box {
     display: flex;
+    margin: 20px 10px;
 }
 
 .comment-user-header {

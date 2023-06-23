@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -6,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state() {
     return {
+      isLikedGroup: [],
       PhotoPageImgData: JSON.parse(localStorage.getItem("PhotoPageImgData")) ?? null,
       user: [
         // userid(用户ID),username(用户名),userinfo(用户简介),userheader(用户头像),userbackgroud(用户背景)
@@ -65,7 +67,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "swimsuit" },
             { tno: 3, tname: "棒アイス" }
           ],
-          isLiked: false,
+
           intrduce: `夏コミで出すB2タペストリーの絵柄です!
                        なちょ猫と雫ちゃん一緒に描けてよかった (Ｕ＞△＜Ｕ)
                        -----
@@ -86,7 +88,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "Nachoneko" },
             { tno: 3, tname: "なちょ猫" }
           ],
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -98,7 +100,7 @@ export default new Vuex.Store({
           time: "2023-06-09",
           url: require(`@/assets/3.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -110,7 +112,7 @@ export default new Vuex.Store({
           time: "2023-06-09",
           url: require(`@/assets/4.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -122,7 +124,7 @@ export default new Vuex.Store({
           time: "2023-06-09",
           url: require(`@/assets/5.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -134,7 +136,7 @@ export default new Vuex.Store({
           time: "2023-06-09",
           url: require(`@/assets/6.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -146,7 +148,7 @@ export default new Vuex.Store({
           time: "2023-06-09",
           url: require(`@/assets/7.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -158,7 +160,7 @@ export default new Vuex.Store({
           time: "2023-06-10",
           url: require(`@/assets/12.png`),
           type: "ChinesepPainting",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -170,7 +172,7 @@ export default new Vuex.Store({
           time: "2023-06-11",
           url: require(`@/assets/13.png`),
           type: "canvas",
-          isLiked: false,
+
           intrduce: `无`
         },
         {
@@ -182,7 +184,7 @@ export default new Vuex.Store({
           time: "2020-12-07",
           url: require(`@/assets/14.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `:3`,
         },
         {
@@ -194,7 +196,7 @@ export default new Vuex.Store({
           time: "2020-12-07",
           url: require(`@/assets/18.png`),
           type: "animation",
-          isLiked: false,
+
           intrduce: `新しいTシャツ販売開始しました!
                     [ https://nanyanostore.com/products/oha-nacho ]
                     なちょ猫がいつも身につけているヘアクリップも同時に販売しています！
@@ -215,7 +217,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "しろいいぬ" },
             { tno: 3, tname: "原创7500收藏" }
           ],
-          isLiked: false,
+
           intrduce: `リクエストで描かせていただきました、ありがとうございました✯`,
         },
         {
@@ -232,7 +234,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "headdress" },
             { tno: 3, tname: "オリジナル10000users入り" }
           ],
-          isLiked: false,
+
           intrduce: `イラストレーター・月見先生のお誕生日に月見先生のオリジナルキャラクターを描かせていただきました！`,
         },
         {
@@ -249,7 +251,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "銀髪" },
             { tno: 3, tname: "房间" }
           ],
-          isLiked: false,
+
           intrduce: `无`,
         },
         {
@@ -266,7 +268,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "废墟" },
             { tno: 3, tname: "房间" }
           ],
-          isLiked: false,
+
           intrduce: `无`,
         },
         {
@@ -283,7 +285,7 @@ export default new Vuex.Store({
             { tno: 2, tname: "銀髪" },
             { tno: 3, tname: "房间" }
           ],
-          isLiked: false,
+
           intrduce: `无`,
         },
 
@@ -292,12 +294,50 @@ export default new Vuex.Store({
         1: [
           {
             id: 1,
-            name: "eli",
+            name: "User",
             avatar: "../",
             text: "test",
             time: ""
           }
-        ]
+        ],
+        2: [
+          {
+            id: 1,
+            name: "test",
+            avatar: "../",
+            text: "test1",
+            time: ""
+          }
+        ],
+        3: [
+        ],
+        4: [
+        ],
+        5: [
+        ],
+        6: [
+        ],
+        7: [
+        ],
+        8: [
+        ],
+        9: [
+        ],
+        10: [
+        ],
+        11: [
+        ],
+        12: [
+        ],
+        13: [
+        ],
+        14: [
+        ],
+        15: [
+        ],
+        16: [
+        ],
+
       }
     }
   },
@@ -308,12 +348,27 @@ export default new Vuex.Store({
     setPhotoPageImgData(state, data) {
       state.PhotoPageImgData = data
       if (data) localStorage.setItem("PhotoPageImgData", JSON.stringify(data))
+    },
+    setPhotoLike(state, {no, isLiked}) {
+      if (isLiked) {
+        if (state.isLikedGroup.indexOf(no) === -1) state.isLikedGroup.push(no)
+      }
+      else {
+        state.isLikedGroup = state.isLikedGroup.filter((v) => v != no)
+      }
+    },
+    setIsLikedGroup(state, data) {
+      state.isLikedGroup = data ?? []
+    },
+    setComments(state, {id, list}) {
+      state.CommentSection[id] = list
     }
   },
   actions: {
-    setPhotoLike(state,data){
-      state.setPhotoLike = data
-      this.$store.dispatch('data')
+    fetchIsLikedGroup(ctx) {
+      axios.get("/api/isLikedGroup.json").then(({data}) => {
+        ctx.commit("setIsLikedGroup", data)
+      })
     }
   },
   modules: {

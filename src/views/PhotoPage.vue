@@ -13,7 +13,7 @@
                                 <div class="body-text1" @click="$event => gotoAuthorPage(img.authorid)">{{ img.author }}
                                 </div><!--作者名字-->
                                 <div class="body-text1">{{ img.name }}</div><!--画作名字-->
-                                <div class="like-logo" v-show="isLiked == false" @click="cilckLike"></div>
+                                <div class="like-logo" v-show="isLiked == false" @click="cilckLike"></div><!--喜欢-->
                                 <div class="dislike-logo" v-show="isLiked == true" @click="cilckDisLike" style="color: red;"></div>
                             </div>
                         </div>
@@ -69,22 +69,25 @@ export default {
     },
     mounted() {
         this.$data.img = this.$store.state.PhotoPageImgData ?? JSON.parse(localStorage.getItem("PhotoPageImgData") ?? {})
+        this.isLiked = this.$store.state.isLikedGroup.indexOf(parseInt(this.$route.params.id)) !== -1
     },
     methods: {
         gotoAuthorPage(authorid) {
-            // console.log(authorid);
-            // this.$store.commit("setPhotoPageImgData", author)
             this.$router.push(`/AuthorPage/${authorid}`)
         },
         cilckLike(){
             this.isLiked = true
+            this.$store.commit("setPhotoLike",{
+                no: this.img.no,
+                isLiked: true
+            })
         },
         cilckDisLike(){
             this.isLiked = false
-        },
-        PhotoLike(isLiked){
-            console.log(isLiked);
-            this.$route.commit("setPhotoLike",isLiked)
+            this.$store.commit("setPhotoLike",{
+                no: this.img.no,
+                isLiked: false
+            })
         }
     },
 

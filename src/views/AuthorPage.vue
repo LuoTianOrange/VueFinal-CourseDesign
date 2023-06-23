@@ -172,23 +172,40 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 /*作者头像*/
-.author-header {
-  /* background-image: url(../assets/20.png); */
-  display: block;
-  width: 200px;
-  height: 200px;
-  box-sizing: inherit;
-  background-size: cover;
-  position: relative;
-  top: -60px;
-  right: 60px;
-  border: 2px solid white;
-  border-radius: 50%;
-  /* background-position: 50%; */
-  box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+@media screen and (width >= 1385px) {
+  .author-header {
+    display: block;
+    width: 200px;
+    height: 200px;
+    box-sizing: inherit;
+    background-size: cover;
+    position: relative;
+    top: -60px;
+    right: 60px;
+    border: 2px solid white;
+    border-radius: 50%;
+    /* background-position: 50%; */
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+  }
 }
+
+@media screen and (width < 1385px) {
+  .author-header {
+    display: block;
+    width: 200px;
+    height: 200px;
+    box-sizing: inherit;
+    background-size: cover;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+    position: absolute;
+    left: 45%;
+    top: 7%;
+  }
+}
+
 
 .body-text1 {
   text-align: left;
