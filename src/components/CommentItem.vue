@@ -31,12 +31,13 @@ export default {
 
     data() {
         return {
-            commentList: [],
-            trim: "",
-            newComment: ""
+            commentList: [],// 评论列表
+            trim: "",// 评论内容去除空格
+            newComment: ""// 新评论内容
         }
     },
     mounted() {
+        // 获取对应页面的评论列表
         this.commentList = this.$store.state.CommentSection[this.$route.params.id]
     },
     methods: {
@@ -49,6 +50,7 @@ export default {
                     id: this.$route.params.id,
                     list: this.commentList
                 })
+                //发送评论后清空评论发送框内容
                 this.newComment = '';
             } else {
                 alert("评论不能为空！")

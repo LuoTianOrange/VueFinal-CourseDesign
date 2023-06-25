@@ -31,6 +31,7 @@ export default {
     },
     methods: {
         outerClick(e) {
+            //用于触发外部点击事件，并通过 $emit 方法将事件传递给父组件。
             this.$emit("click", e)
         }
     }

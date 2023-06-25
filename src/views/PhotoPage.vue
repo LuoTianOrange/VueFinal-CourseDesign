@@ -4,7 +4,6 @@
             <div class="margin-twin">
                 <div class="body-left">
                     <img :src="img.url" alt="" class="body-img"> <!--图片展示区-->
-
                 </div>
                 <div class="body-right">
                     <div class="body-right-item">
@@ -68,6 +67,7 @@ export default {
         }
     },
     mounted() {
+         // 获取图片信息，并设置isLiked值
         this.$data.img = this.$store.state.PhotoPageImgData ?? JSON.parse(localStorage.getItem("PhotoPageImgData") ?? {})
         this.isLiked = this.$store.state.isLikedGroup.indexOf(parseInt(this.$route.params.id)) !== -1
     },
@@ -76,6 +76,7 @@ export default {
             this.$router.push(`/AuthorPage/${authorid}`)
         },
         cilckLike(){
+             // 提交点赞状态到store
             this.isLiked = true
             this.$store.commit("setPhotoLike",{
                 no: this.img.no,
@@ -83,6 +84,7 @@ export default {
             })
         },
         cilckDisLike(){
+             // 提交取消点赞状态到store
             this.isLiked = false
             this.$store.commit("setPhotoLike",{
                 no: this.img.no,

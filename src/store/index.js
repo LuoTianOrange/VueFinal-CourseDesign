@@ -345,26 +345,33 @@ export default new Vuex.Store({
 
   },
   mutations: {
+    // 设置图片详细页面的图片数据
     setPhotoPageImgData(state, data) {
       state.PhotoPageImgData = data
       if (data) localStorage.setItem("PhotoPageImgData", JSON.stringify(data))
     },
     setPhotoLike(state, {no, isLiked}) {
+       // 设置图片点赞状态
       if (isLiked) {
+        // 若未点赞，则添加到点赞列表中
         if (state.isLikedGroup.indexOf(no) === -1) state.isLikedGroup.push(no)
       }
       else {
+        // 若已点赞，则从点赞列表中移除
         state.isLikedGroup = state.isLikedGroup.filter((v) => v != no)
       }
     },
+     // 设置点赞列表数据
     setIsLikedGroup(state, data) {
       state.isLikedGroup = data ?? []
     },
+     // 设置评论数据
     setComments(state, {id, list}) {
       state.CommentSection[id] = list
     }
   },
   actions: {
+    // 异步获取点赞列表数据
     fetchIsLikedGroup(ctx) {
       axios.get("/api/isLikedGroup.json").then(({data}) => {
         ctx.commit("setIsLikedGroup", data)

@@ -54,9 +54,10 @@ export default {
     for (const img of image) {
       if (img.authorid == id) {
         res.push(img)
-      }//遍历image
+      }//遍历image筛选出作者的作品图片
     }
     const user = this.$store.state.user
+    //匹配userid和路由里面的id
     for (const i of user) {
       if (i.userid == id) {
         this.author = i
@@ -68,15 +69,18 @@ export default {
   methods: {
     gotoPhotoPage(img) {
       // console.log(img);
+      // 将图片数据存入 store
       this.$store.commit("setPhotoPageImgData", img)
       this.$router.push(`/PhotoPage/${img.no}`)
     },
     gotoAuthorPage(author) {
+      // 将作者数据存入 store
       this.$store.commit("setPhotoPageImgData", author)
       this.$router.push()
     }
   },
   created() {
+     // 将 store 中的 PhotoPageImgData 数据赋值给组件中的 setPhotoPageImgData 属性
     this.setPhotoPageImgData = this.$store.setPhotoPageImgData
   },
   computed: {
@@ -87,6 +91,7 @@ export default {
         return user ? user.userheader : '';
       };
     },
+    // 通过userid匹配userbackground
     getAuthorBackgroundById() {
       return (userid) => {
         const user = this.$store.state.user.find((u) => u.userid === userid);
