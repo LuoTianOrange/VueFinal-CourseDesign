@@ -1,5 +1,6 @@
-# finproject
+# 画作在线展览平台
 
+#运行项目
 ## Project setup
 ```
 npm install
