@@ -4,13 +4,13 @@
         <div @mouseenter="isHovered = 1" @mouseleave="isHovered = 0">
             <div class="body-content" :class="bodyContentClass[isHovered]">
                 <div class="body-content-text">
-                    <div>
+                    <div v-if="name">
                         名字：{{ this.name }}
                     </div>
-                    <div>
+                    <div v-if="author">
                         作者：{{ this.author }}
                     </div>
-                    <div>
+                    <div v-if="time">
                         时间：{{ this.time }}
                     </div>
                 </div>

@@ -22,6 +22,7 @@ export default {
     props: ["tagName"],
     data: () => {
         return {
+            //默认是否展开
             isClicked: true,
         }
     }

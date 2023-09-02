@@ -6,7 +6,7 @@
       <div>
         <div class="author-info">
           <span class="author-header" :style="{ backgroundImage: `url(${getUserHeaderById(author.userid)})` }"></span>
-          <div style="width: 800px;height: 100px;">
+          <div style="width: 800px;height: 100px;margin: 0 20px;">
             <div class="body-text1">{{ author.username }}</div>
             <div class="body-text2">{{ author.userinfo }}</div>
           </div>
@@ -206,8 +206,7 @@ export default {
     border-radius: 50%;
     box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
     position: absolute;
-    left: 45%;
-    top: 7%;
+    top: 8%;
   }
 }
 

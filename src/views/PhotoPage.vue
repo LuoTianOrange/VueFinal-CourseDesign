@@ -62,7 +62,6 @@ export default {
     data() {
         return {
             img: {},
-            image: this.$store.state.image,
             isLiked: false
         }
     },
@@ -71,8 +70,14 @@ export default {
         this.$data.img = this.$store.state.PhotoPageImgData ?? JSON.parse(localStorage.getItem("PhotoPageImgData") ?? {})
         this.isLiked = this.$store.state.isLikedGroup.indexOf(parseInt(this.$route.params.id)) !== -1
     },
+    computed:{
+        image() {
+            return this.$store.state.image
+        }
+    },
     methods: {
         gotoAuthorPage(authorid) {
+            //根据作者id创建作者页面
             this.$router.push(`/AuthorPage/${authorid}`)
         },
         cilckLike(){

@@ -8,7 +8,6 @@
                     <div>
                         项目组件:CommentItem(评论区),DropDownTagTmp(首页下拉列表),ImgItem(画作展示盒),ImgTmp(画作悬停显示),MainFooter(底部栏),MainHeader(头部导航栏)
                     </div>
-                    <div>待实现功能:<span style="text-decoration: line-through;">点击作者名字跳转作者详细页面,作者详细页面可以展示和打开画作;发送评论,点赞;主页切换画作和作者,画作展示页面使用媒体查询自动缩放</span></div>
                     <div>可能实现的功能:全局搜索框,登录注册,根据标签名字匹配标签颜色,点击标签自动将标签置入搜索框搜索对应关键词</div>
                 </div>
             </div>
