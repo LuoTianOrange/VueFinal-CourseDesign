@@ -1,14 +1,22 @@
 <template>
   <div id="app">
     <MainHeader />
-    <router-view/>
+    <router-view />
     <MainFooter />
   </div>
 </template>
 
-<script setup>
+<script>
 import MainFooter from "./components/MainFooter.vue";
 import MainHeader from "./components/MainHeader.vue";
+
+export default {
+  name: "App",
+  components: {
+    MainFooter,
+    MainHeader
+  }
+}
 </script>
 
 <style>
@@ -19,7 +27,8 @@ import MainHeader from "./components/MainHeader.vue";
   text-align: center;
   color: #2c3e50;
 }
-.body head{
+
+.body head {
   margin: 0;
   padding: 0;
 }

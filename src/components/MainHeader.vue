@@ -4,7 +4,7 @@
         <div class="main-header">
             <router-link to="/" style="display: flex;align-items: center;">
                 <div class="head-item" style="margin-left: 60px;">
-                    <img src="../assets/OrangeLogo.png" alt="logo" width="40px">
+                    <img src="../assets/OrangeLogo.png" alt="logo" width="40px" />
                 </div>
                 <div class="head-item header-logo-text">
                     <div class="header-text1">
@@ -13,22 +13,22 @@
             </router-link>
             <div class="head-item" style="flex: 1;">
                 <div class="head-search">
-                    <img src="../assets/serach-logo.png" alt="search" class="logo-search">
+                    <img src="../assets/serach-logo.png" alt="search" class="logo-search" />
                     <form style="flex: 1;">
-                        <!--搜索输入框-->
                         <input class="head-search-input" type="text" title="1" v-model="searchKeyword" @click="SearchEnter"
-                            @focus.prevent="SearchEnter" style="min-width: 200px;">
+                            @focus.prevent="SearchEnter" style="min-width: 200px;" />
                     </form>
-                    <div v-if="searchKeyword?.length" @click="CleanInput"><svg class="s2-svg2" width="16" height="16"
-                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <div v-if="searchKeyword && searchKeyword.length" @click="CleanInput">
+                        <svg class="s2-svg2" width="16" height="16" viewBox="0 0 48 48" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </div>
                 </div>
                 <!--搜索结果-->
                 <div class="search-box" v-show="isSearchClick == true" @mouseleave="SearchLeave">
-                    <div v-show="filteredImages?.length" class="header-box header-font"
+                    <div v-show="filteredImages && filteredImages.length" class="header-box header-font"
                         style="position: sticky; top: 0; z-index: 10;">作品</div>
                     <div v-for="i in filteredImages" :key="i.no">
                         <div class="header-box box-hover header-font2" @click="gotoPhotoPage(i)">
@@ -41,7 +41,7 @@
             <div class="head-item">
                 <a href="">
                     <!--头像-->
-                    <img src="../assets/3.png" alt="" style="width: 40px;border-radius: 50%;border: 1px solid #777777;">
+                    <img src="../assets/3.png" alt="" style="width: 40px;border-radius: 50%;border: 1px solid #777777;" />
                 </a>
             </div>
         </div>
@@ -102,8 +102,8 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (width < 600px){
-    .header-logo-text{
+@media screen and (width < 600px) {
+    .header-logo-text {
         display: none;
     }
 }
@@ -218,4 +218,5 @@ export default {
 
 .box-hover:hover {
     background-color: #eeeeee;
-}</style>
+}
+</style>
